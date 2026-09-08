@@ -1,0 +1,16 @@
+{
+  "name": "Auto-SecAge",
+  "author": "Shehab Anwer, MD",
+  "kaggle_user": "habanwer",
+  "org": "The Adimension",
+  "stack": ["REDACTS", "Agent-ProSAT", "autoresearch-MIL"],
+  "mode": "submit",
+  "time_budget_s": 1800,
+  "replay_budget_s": 9000,
+  "replay_safe": 0.99,
+  "max_candidates": 420,
+  "max_tool_hops": 8,
+  "max_user_messages": 32,
+  "seed": 123,
+  "ethics": "competition-fixtures-only"
+}

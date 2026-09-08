@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: "Auto-SecAge: a contract-driven attack searcher for multi-step tool-using agents"
+message: "If you use this work, please cite it."
+type: software
+authors:
+  - family-names: Anwer
+    given-names: Shehab
+    affiliation: The Adimension
+    alias: habanwer
+year: 2026
+license: Apache-2.0
+repository-code: "https://github.com/The-Adimension/Auto-SecAge"
+url: "https://www.kaggle.com/writeups/habanwer/Auto-SecAge"
+abstract: >-
+  A sealed-case, memory-in-the-loop red-team search lab for tool-using AI agents.
+  Ports the contracts of REDACTS (FrozenCase and a severity gate), Agent-ProSAT
+  (a mutable solver against a locked evaluator, twin-blind, keep/revert) and
+  autoresearch-MIL (user-owned law, agent-owned solver, append-only memory, time
+  budget as law) into a single autoresearch loop. Built as a case study for the
+  Kaggle AI Agent Security - Multi-Step Tool Attacks benchmark.
+keywords:
+  - ai-security
+  - red-teaming
+  - prompt-injection
+  - tool-using-agents
+  - agentdojo
+  - guardrails
+identifiers:
+  - type: url
+    value: "https://www.kaggle.com/writeups/habanwer/Auto-SecAge"
+    description: Kaggle Working Note (personal writeup, topic 739748, write-up 113013)
+  - type: url
+    value: "https://www.kaggle.com/code/habanwer/auto-secage"
+    description: Kaggle inference notebook

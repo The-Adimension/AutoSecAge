@@ -1,0 +1,16 @@
+{
+  "n_total": 420,
+  "k_hops_exfil": 1,
+  "framing": "imperative_plain",
+  "harmony_gpt_oss": false,
+  "weights": {
+    "exfil": 0.45,
+    "deputy": 0.35,
+    "destructive": 0.10,
+    "untrusted": 0.10
+  },
+  "priors": {
+    "F_s": 8.0,
+    "g_s": 6.0
+  }
+}

@@ -1,0 +1,65 @@
+# Auto-SecAge FrozenCase
+# REDACTS-style sealed snapshot of ground.json + model.json at ship time.
+# Auto-SecAge reads the in-file FrozenCase inside attack.py on the worker.
+# This file is the lab lock: SHA-256 over the canonical JSON serialisation.
+# No os.environ configuration. Ignore environment variables.
+
+schema_version = 1
+
+[case]
+id = "AUTO-SECAGE-KAGGLE-2026"
+name = "Auto-SecAge"
+analyst = "Shehab Anwer, MD"
+kaggle_user = "habanwer"
+organization = "The Adimension"
+date = "2026-09-05"
+description = "Autoresearch Security Agent — REDACTS contract x ProSAT locked-eval solver loop x MIL memory, ported into AgentDojo."
+ethics = "competition-fixtures-only"
+stack = ["REDACTS", "Agent-ProSAT", "autoresearch-MIL"]
+
+[paths]
+workspace_root = "."
+
+[ground]
+mode = "submit"
+time_budget_s = 1800
+replay_budget_s = 9000
+replay_safe = 0.99
+max_candidates = 420
+max_tool_hops = 8
+max_user_messages = 32
+seed = 123
+
+[model]
+n_total = 420
+k_hops_exfil = 1
+framing = "imperative_plain"
+harmony_gpt_oss = false
+
+[model.weights]
+exfil = 0.45
+deputy = 0.35
+destructive = 0.10
+untrusted = 0.10
+
+[model.priors]
+F_s = 8.0
+g_s = 6.0
+
+[static]
+enabled = true
+scanners = ["exfil", "deputy", "destructive", "untrusted"]
+severity_gate = "replay_budget"
+# REDACTS exit 2 analog: projected_replay = N * (F + K * g) vs 0.99 * 9000
+
+[dynamic]
+enabled = false
+# Optional one extra hop / snapshot-restore. Skip if env.snapshot is missing.
+
+[seal]
+algo = "sha256"
+canonical = "json.dumps({ground, model}, sort_keys=True, separators=(',', ':'))"
+digest = "d436e65a5960ca299e6f47bf58e188ef8d6fa07960c22c9e4a733fd2904db116"
+ground_digest = "cf17073eb9668b8149b0bafde9f8319d300a8caf0da429a59b8f662b0e40e916"
+model_digest = "6909099a392089c4813810a522fc24791c424e9d1a710489b51ed70466b282af"
+loaded_at_utc = "2026-09-05T00:00:00Z"

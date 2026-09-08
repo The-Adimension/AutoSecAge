@@ -1,0 +1,15 @@
+# Auto-SecAge (public) — the metric runners need the competition SDK, which is
+# licensed and NOT distributed here. See README "Bootstrap".
+
+lab_sdk/
+ai-agent-security-multi-step-tool-attacks.zip
+.venv_replay/
+.venv/
+__pycache__/
+*.pyc
+attack.py.bak*
+sessions/oracle-*.log
+kaggle.json
+*.key
+kaggle_kernel/kaggle_snapshot/
+kaggle_snapshot/
